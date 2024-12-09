@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Instagram</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./insta.js"></script>
+</head>
+<body>
+    <section class="one" >
+        <div class="left">
+        <i class="fa-solid fa-arrow-left"></i>
+        <h2 class="s" >SHASHI</h2>
+    </div>
+    <div class="right" >
+        <i class="fa-solid fa-bell"></i>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+    </div>
+    </section>
+    <section class="pfinfo" >
+        <img class="picture" src="https://picsum.photos/96" alt="">
+        <div class="info" >
+          <h4 class="np" >20</h4>
+          <span>posts</span>
+        </div>
+       <div class="info" >
+          <h4 class="fcount" >1500</h4>
+          <span>followers</span>
+        </div>
+       <div class="info" >
+          <h4 class="flc" >1400</h4>
+          <span>following</span>
+        </div>
+
+    </section>
+    <section class="bio" >
+        <h5 class="bbio" >about me</h5>
+        <span>education</span>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias perspiciatis iure nulla expedita sint cumque?</p>
+        <a href="https://sriindufoods.netlify.app/"></a>
+    </section>
+    <section class="high" >
+        <div class="highlights" >
+            <img src="https://picsum.photos/91" alt="">
+            <span>highlights</span>
+        </div>
+        <div class="highlights" >
+            <img src="https://picsum.photos/92" alt="">
+            <span>highlights</span>
+        </div>
+        <div class="highlights" >
+            <img src="https://picsum.photos/93" alt="">
+            <span>highlights</span>
+        </div>
+        <div class="highlights" >
+            <img src="https://picsum.photos/94" alt="">
+            <span>highlights</span>
+        </div>
+        <div class="highlights" >
+            <img src="https://picsum.photos/95" alt="">
+            <span>highlights</span>
+        </div>
+    </section>
+    <section class="posts" >
+        
+    </section>
+</body>
+</html>
+<script>
+var random = Math.floor(Math.random()*20+1)
+document.querySelector('.np').innerHTML = random
+document.querySelector('.fcount').innerHTML = Math.floor(Math.random()*10000)
+document.querySelector('.flc').innerHTML = Math.floor(Math.random()*10000)
+fetch('https://randomuser.me/api/').then(response=>{
+    response.json().then(data=>{
+        let user = data.results[0];
+        document.querySelector('.s').innerHTML = user.name.first
+        document.querySelector('.bbio').innerHTML = user.first+ ""+user.last
+        document.querySelector('.picture').src = user.picture.medium 
+        for(let i=0;i<random;i++){
+            let img = document.createElement('img');
+            img.src = 'https://picsum.photos/9'+i;
+            document.querySelector('.posts').append(img);
+
+        }
+       
+
+    
+        
+
+    })
+
+})
+
+
+</script>
